@@ -5,11 +5,11 @@ from .serializer import PlayerSerializer
 from .models import Player
 
 # Create your views here.
-class PlayerView(generics.CreateAPIView):
+class PlayerView(generics.ListAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
-def HomePage():
+def homePage():
     return HttpResponse('HOME!')
 
 
