@@ -14,6 +14,10 @@ RUN apt-get update && \
 # Install django & postgresql python driver
 RUN pip3 install Django Djangorestframework psycopg2
 
+# FE Setup
+
+RUN apt-get install nodejs npm
+
 RUN npm i webpack webpack-cli --save-dev
 RUN npm i @babel/core babel-loader @babel/preset-env @babel/preset-react --save-dev
 RUN npm i react react-dom --save-dev
