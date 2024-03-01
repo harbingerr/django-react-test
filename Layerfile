@@ -1,10 +1,15 @@
 #This is an example webapp.io configuration for Django!
 FROM vm/ubuntu:18.04
 
+SECRET ENV SECRET_KEY
+RUN echo "secret is: $SECRET_KEY"
+
 # To note: Layerfiles create entire VMs, *not* containers!
+
+# Copy project files
+COPY . .
 
 # Run migrations (implicitly checks that they work)
 RUN python3 manage.py makemigrations && python3 manage.py migrate
 
-# Start the server
-EXPOSE WEBSITE localhost:8000
+
