@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import main
+from .views import PlayerView, HomePage
 
 urlpatterns = [
-    path('', main)
+    path('', HomePage),
+    path('api/player', PlayerView.as_view())
 ]
