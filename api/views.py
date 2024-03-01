@@ -9,7 +9,7 @@ class PlayerView(generics.ListAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
-def homePage():
+def homePage(request):
     return HttpResponse('HOME!')
 
 
