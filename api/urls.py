@@ -3,5 +3,6 @@ from .views import PlayerView, homePage
 
 urlpatterns = [
     path('', homePage),
-    path('api/player', PlayerView.as_view())
+    path('api/player/get', PlayerView.as_view())
+    path('api/player/post', PlayerPostView.as_view())
 ]

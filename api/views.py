@@ -5,7 +5,11 @@ from .serializer import PlayerSerializer
 from .models import Player
 
 # Create your views here.
-class PlayerView(generics.ListAPIView):
+class PlayerGetView(generics.ListAPIView):
+    queryset = Player.objects.all()
+    serializer_class = PlayerSerializer
+
+class PlayerPostView(generics.CreateAPIView):
     queryset = Player.objects.all()
     serializer_class = PlayerSerializer
 
