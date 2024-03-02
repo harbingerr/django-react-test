@@ -16,7 +16,15 @@ RUN pip3 install Django Djangorestframework psycopg2
 
 # FE Setup
 
-RUN apt-get install nodejs npm
+RUN curl -fSsL https://deb.nodesource.com/setup_12.x | bash && \
+    apt-get install nodejs python3 make gcc build-essential && \
+    rm -f /etc/apt/sources.list.d/nodesource.list
+
+# node is a memory hog
+MEMORY 2G
+ENV NODE_OPTIONS=--max-old-space-size=8192
+
+RUN npm install || true
 
 
 # Set up database
